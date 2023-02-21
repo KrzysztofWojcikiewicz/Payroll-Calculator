@@ -1,8 +1,9 @@
 # This is going to be a simple payroll calculator in accordance with Polish tax and social security laws.
 
-print("Greetings!\nThis is a payroll calculator for different forms of employment in Poland.\nThis version handles contract for a specific work only.\n")
+print("Greetings!\nThis is a payroll calculator for different forms of employment in Poland.\nThis version handles "
+      "contract for a specific work only.\n")
 
-gross_amonut = float(input("Please enter the gross amount: "))
+gross_amount = float(input("Please enter the gross amount: "))
 tax_bracket = (input("Are you in a lower tax bracket (income less than 120k in a year)? (Y/N)?: ")).lower()
 tax_rate = 0
 
@@ -25,9 +26,9 @@ else:
     print("Wrong value entered. Terminating.")
     exit()
 
-taxes = round((gross_amonut - (gross_amonut*tax_deduct_rate)) * tax_rate, 0)
+taxes = round((gross_amount - (gross_amount * tax_deduct_rate)) * tax_rate, 0)
 
-nett_amount = gross_amonut - taxes
+nett_amount = gross_amount - taxes
 
 
 print(f"Your nett pay amount is: {int(nett_amount)},00 PLN\nAnd the amount of taxes is: {int(taxes)},00 PLN")
