@@ -2,16 +2,21 @@
 
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 from decimal import *
 
 getcontext().prec = 2
 
 
 def calculate():
-    taxamount = float(vtaxbracket.get()) * (float(vgrossamount.get()) - (float(vgrossamount.get()) * float(vtaxexpenses.get())))
-    netamount = float(vgrossamount.get()) - round(taxamount, 0)
-    vtaxamount.set("{:.2f}".format(round(taxamount, 0)))
-    vnetamount.set("{:.2f}".format(netamount))
+
+    try:
+        taxamount = float(vtaxbracket.get()) * (float(vgrossamount.get()) - (float(vgrossamount.get()) * float(vtaxexpenses.get())))
+        netamount = float(vgrossamount.get()) - round(taxamount, 0)
+        vtaxamount.set("{:.2f}".format(round(taxamount, 0)))
+        vnetamount.set("{:.2f}".format(netamount))
+    except ValueError:
+        messagebox.showerror("Value error", "Error: You can only input numbers!")
 
 
 root = Tk()
