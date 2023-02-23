@@ -1,4 +1,4 @@
-# This is main layout for the application GUI.
+# This is the main layout module for the application's GUI.
 
 from tkinter import *
 from tkinter import ttk
@@ -57,10 +57,10 @@ vnetamount = StringVar()
 vnetamount.set("0")
 
 vstud = IntVar()
-vstud.set(0)
+vstud.set(1)
 
 vage = IntVar()
-vage.set(0)
+vage.set(1)
 
 vssec = IntVar()
 vssec.set(0)
@@ -120,7 +120,7 @@ ttk.Radiobutton(bottom_frame1, text="50%", variable=vtaxexpenses, value="0.50").
 ttk.Label(bottom_frame1, textvariable=vtaxamount, justify="right").grid(column=2, row=3)
 ttk.Label(bottom_frame1, textvariable=vnetamount, justify="right").grid(column=2, row=4)
 
-ttk.Button(bottom_frame1, text="Calculate", command=calculator.calculate).grid(column=4, row=0)
+ttk.Button(bottom_frame1, text="Calculate", command=calculator.calculate_specific).grid(column=4, row=0)
 
 
 bottom_frame2 = ttk.Frame(root)
@@ -129,7 +129,7 @@ ttk.Label(bottom_frame2, text="Enter gross amount:", justify="left", width=35).g
 ttk.Label(bottom_frame2, text="Pick your tax bracket:", justify="left", width=35).grid(column=0, row=1)
 ttk.Label(bottom_frame2, text="Pick your tax deductible expenses:", justify="left", width=35).grid(column=0, row=2)
 ttk.Label(bottom_frame2, text="Student under the age of 26?", justify="left", width=35).grid(column=0, row=3)
-ttk.Label(bottom_frame2, text="Employee under the age of 26?", justify="left", width=35).grid(column=0, row=4)
+ttk.Label(bottom_frame2, text="Person under the age of 26?", justify="left", width=35).grid(column=0, row=4)
 ttk.Label(bottom_frame2, text="Obligatory/voluntary social insurance?", justify="left", width=35).grid(column=0, row=5)
 ttk.Label(bottom_frame2, text="Voluntary sick allowance insurance?", justify="left", width=35).grid(column=0, row=6)
 ttk.Label(bottom_frame2, text="Voluntary Employee Capital Plans?", justify="left", width=35).grid(column=0, row=7)
@@ -150,8 +150,8 @@ ttk.Radiobutton(bottom_frame2, text="32%", variable=vtaxbracket, value="0.32").g
 ttk.Radiobutton(bottom_frame2, text="20%", variable=vtaxexpenses, value="0.20").grid(column=1, row=2)
 ttk.Radiobutton(bottom_frame2, text="50%", variable=vtaxexpenses, value="0.50").grid(column=2, row=2)
 
-ttk.Checkbutton(bottom_frame2, text="Yes", variable=vstud).grid(column=2, row=3)
-ttk.Checkbutton(bottom_frame2, text="Yes", variable=vage).grid(column=2, row=4)
+ttk.Checkbutton(bottom_frame2, text="Yes", variable=vstud, onvalue=0, offvalue=1).grid(column=2, row=3)
+ttk.Checkbutton(bottom_frame2, text="Yes", variable=vage, onvalue=0, offvalue=1).grid(column=2, row=4)
 ttk.Checkbutton(bottom_frame2, text="Yes", variable=vssec).grid(column=2, row=5)
 ttk.Checkbutton(bottom_frame2, text="Yes", variable=vsic).grid(column=2, row=6)
 ttk.Checkbutton(bottom_frame2, text="Yes", variable=vppk).grid(column=2, row=7)
@@ -164,7 +164,7 @@ ttk.Label(bottom_frame2, textvariable=vhealthamount, justify="right").grid(colum
 ttk.Label(bottom_frame2, textvariable=vtaxamount, justify="right").grid(column=2, row=13)
 ttk.Label(bottom_frame2, textvariable=vnetamount, justify="right").grid(column=2, row=14)
 
-ttk.Button(bottom_frame2, text="Calculate", command=calculator.calculate).grid(column=4, row=0)
+ttk.Button(bottom_frame2, text="Calculate", command=calculator.calculate_mandate).grid(column=4, row=0)
 
 
 bottom_frame3 = ttk.Frame(root)
@@ -186,7 +186,7 @@ ttk.Radiobutton(bottom_frame3, text="50%", variable=vtaxexpenses, value="0.50").
 ttk.Label(bottom_frame3, textvariable=vtaxamount, justify="right").grid(column=2, row=3)
 ttk.Label(bottom_frame3, textvariable=vnetamount, justify="right").grid(column=2, row=4)
 
-ttk.Button(bottom_frame3, text="Calculate", command=calculator.calculate).grid(column=4, row=0)
+# ttk.Button(bottom_frame3, text="Calculate", command=calculator.calculate).grid(column=4, row=0)
 
 
 bottom_frame4 = ttk.Frame(root)
@@ -209,4 +209,4 @@ ttk.Radiobutton(bottom_frame4, text="50%", variable=vtaxexpenses, value="0.50").
 ttk.Label(bottom_frame4, textvariable=vtaxamount, justify="right").grid(column=2, row=3)
 ttk.Label(bottom_frame4, textvariable=vnetamount, justify="right").grid(column=2, row=4)
 
-ttk.Button(bottom_frame4, text="Calculate", command=calculator.calculate).grid(column=4, row=0)
+# ttk.Button(bottom_frame4, text="Calculate", command=calculator.calculate).grid(column=4, row=0)
