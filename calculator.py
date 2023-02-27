@@ -52,7 +52,7 @@ def calculate_employment():
         sicamount = float(layout.vgrossamount.get()) * 0.0245
         capitalamount = float(layout.vgrossamount.get()) * 0.02 * layout.vppk.get()
         capitaltax = float(layout.vgrossamount.get()) * 0.015 * layout.vppk.get()
-        healthamount = round(round((float(layout.vgrossamount.get()) - (pensionamount + disamount + sicamount)), 2) * 0.09 * layout.vstud.get(), 2)
+        healthamount = round(round((float(layout.vgrossamount.get()) - (pensionamount + disamount + sicamount)), 2) * 0.09, 2)
         taxexpenence = ((float(layout.vgrossamount.get()) + float(capitaltax)) - (pensionamount + disamount + sicamount)) * float(layout.vtaxexpenses.get())
         taxbaseamount = round((float(layout.vgrossamount.get()) + capitaltax) - (pensionamount + disamount + sicamount + taxexpenence), 0)
 
